@@ -1,20 +1,29 @@
 # What is this?
 
-This suppresses A3 content from being shown in the "difficulty tier" pages in Sanbai Ice Cream, e.g.
-[Level 14 Single Play Difficulty](https://3icecream.com/difficulty_list/14). I wrote it to continue
-tracking difficulty lamp progress on A20 PLUS, and I figured others would want to as well.
+This is a collection of several related UserScripts that I built out to make the Sanbai experience a bit better. Currently, this means:
+* Hiding A3 content in difficulty tier pages, such as [Level 14 Single Play Difficulty](https://3icecream.com/difficulty_list/14) (which can be toggled)
+* Manually hiding song jackets (e.g., missed events or unpurchased GP packs) to simplify tracking lamp/score goals for each difficulty
+* Expanding the score filter dropdown from lamps, AAA, and AA to all letter grades
 
-# How to use
 
-Download a [UserScript](https://en.wikipedia.org/wiki/Userscript) manager for your browser, then import `script.js` into it.
+# How do I use it?
 
-# Contributions
+1. Download a [UserScript](https://en.wikipedia.org/wiki/Userscript) manager for your browser, if you don't have one already.
+2. Download `script.js` and add it to your manager. You should then automatically receive all further updates.
 
-Contributions are welcome! I don't have grand ambitions with this script, but if you do, you're welcome to file issues and/or send pull requests** and/or fork.
 
-** *Pull request acceptance not guaranteed, so please check in with me via an issue or Discord ("vyhd") if you plan to spend significant time on one.*
+# Contribution policy
+
+Contributions are welcome! I don't have major ambitions with this script, but if you do, you're welcome to file issues
+and/or send pull requests** and/or fork.
+
+** *Pull request acceptance not guaranteed, so please check via an issue or Discord ("vyhd") if you plan to spend significant time on one.*
+
 
 # Changelog
+
+## 3.0.0 (in progress)
+Added two new UserScripts to the one in https://github.com/vyhd/sanbai-a20-plus-userscript, combining them all in this new repo here.
 
 ### 2.1.3 (2023/11/18)
 fix a rare edge case where we would error out if all song jackets are ranked (i.e., none are filed under 'Insufficient Data')
