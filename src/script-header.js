@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sanbai Sprinkles
 // @namespace    https://vyhd.dev
-// @version      3.0.0
+// @version      2.2.0
 // @description  An unaffiliated collection of UserScripts that enhance the experience of using Sanbai Ice Cream (https://3icecream.com)
 // @license      CC0-1.0; https://creativecommons.org/publicdomain/zero/1.0/
 // @author       vyhd@vyhd.dev
