@@ -12,6 +12,12 @@ This is a collection of several related UserScripts that I built out to make the
 2. Download `script.js` and add it to your manager. You should then automatically receive all further updates.
 
 
+# How do I build it?
+
+1. Be on a Unix-like system. (I alternate between MacOS and Debian, so you can generally expect both CLIs to mostly work.)
+2. Execute `./build.sh` to generate the combined script at `script.js`.
+
+
 # Contribution policy
 
 Contributions are welcome! I don't have major ambitions with this script, but if you do, you're welcome to file issues
