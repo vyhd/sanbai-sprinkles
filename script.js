@@ -124,6 +124,8 @@ class A3ContentToggle extends Module {
     Module.register(this.name, this);
   }
 
+  static STORAGE_KEY = "_us_3ic_display_a3_content";
+
   // jQuery selectors to find all charts for a song, or a single chart if its difficulty is given.
   // `difficulty_id` must be between 0 and 8: values 0-4 are bSP thru CSP, 5-8 are BDP thru CDP.
   static SELECT_BY_SONG_ID = (song_id) => $(`div[id^=div-jacket-${song_id}]`);
@@ -131,6 +133,10 @@ class A3ContentToggle extends Module {
 
   constructor($, window) {
     super();
+
+    // Note that we store the value as "1" or "0", to simplify converting strings from/to Booleans
+    this.hideContent = Boolean(Number(localStorage.getItem(A3ContentToggle.STORAGE_KEY) ?? true));
+    console.log("Hide content: ", this.hideContent);
     this.elementsToToggle = new Array();
 
     // Manually include the "Insufficient Data" row (if it exists): all A20 PLUS content is ranked, so don't render it
@@ -172,12 +178,12 @@ class A3ContentToggle extends Module {
     button.setAttribute('class', 'div-options-btn');
     button.setAttribute('id', 'toggle-a3-content');
 
-    const text = document.createTextNode(showText);
+    const text = document.createTextNode(this.hideContent ? showText : hideText);
     button.appendChild(text);
 
     button.onclick = () => {
-      text.data = (text.data == hideText) ? showText : hideText;
       this.toggle();
+      text.data = this.hideContent ? showText : hideText;
     };
 
     // Install the A3 toggle button under the "What's this list?" link in the top right
@@ -185,13 +191,17 @@ class A3ContentToggle extends Module {
     link.parentNode.insertBefore(button, link.nextSibling);
 
     // Now, hide everything we need to hide
-    this.toggle();
+    if (this.hideContent) {
+      this.elementsToToggle.forEach((elem) => $(elem).toggle());
+    }
   }
 
   toggle() {
-    for (const element of this.elementsToToggle) {
-      $(element).toggle();
-    }
+    this.hideContent = !this.hideContent;
+    localStorage.setItem(A3ContentToggle.STORAGE_KEY, Number(this.hideContent));
+    console.log("Hide content: ", this.hideContent);
+
+    this.elementsToToggle.forEach((elem) => $(elem).toggle());
   }
 }
 
